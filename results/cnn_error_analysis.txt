@@ -1,0 +1,73 @@
+========================================
+CNN ERROR ANALYSIS REPORT
+========================================
+
+Overall Test Accuracy: 99.01%
+Total Test Images: 10000
+Correct Predictions: 9901
+Incorrect Predictions: 99
+
+========================================
+PER-CLASS ACCURACY
+========================================
+
+Digit 0: 99.59% (976/980)
+Digit 1: 99.74% (1132/1135)
+Digit 2: 99.42% (1026/1032)
+Digit 3: 99.70% (1007/1010)
+Digit 4: 98.47% (967/982)
+Digit 5: 98.21% (876/892)
+Digit 6: 98.43% (943/958)
+Digit 7: 99.03% (1018/1028)
+Digit 8: 99.49% (969/974)
+Digit 9: 97.82% (987/1009)
+
+========================================
+MOST COMMON CONFUSIONS
+========================================
+
+5 → 3: 10 images
+4 → 9: 10 images
+7 → 2: 8 images
+9 → 8: 7 images
+9 → 4: 4 images
+6 → 5: 4 images
+6 → 0: 4 images
+9 → 5: 3 images
+9 → 0: 3 images
+6 → 8: 3 images
+9 → 7: 2 images
+9 → 3: 2 images
+6 → 4: 2 images
+6 → 1: 2 images
+5 → 6: 2 images
+
+========================================
+HIGH-CONFIDENCE WRONG PREDICTIONS
+========================================
+
+Index 3808: Actual=7, Predicted=8, Confidence=99.85%
+Index 9015: Actual=7, Predicted=2, Confidence=99.69%
+Index 2597: Actual=5, Predicted=3, Confidence=99.39%
+Index 5937: Actual=5, Predicted=3, Confidence=99.36%
+Index 2896: Actual=8, Predicted=0, Confidence=99.26%
+Index 3520: Actual=6, Predicted=4, Confidence=99.12%
+Index 9729: Actual=5, Predicted=6, Confidence=98.58%
+Index 2654: Actual=6, Predicted=1, Confidence=98.41%
+Index 6651: Actual=0, Predicted=8, Confidence=97.49%
+Index 2130: Actual=4, Predicted=9, Confidence=96.50%
+Index 4360: Actual=5, Predicted=3, Confidence=96.11%
+Index 9009: Actual=7, Predicted=2, Confidence=94.79%
+Index 1901: Actual=9, Predicted=4, Confidence=93.54%
+Index 1232: Actual=9, Predicted=4, Confidence=93.38%
+Index 4823: Actual=9, Predicted=4, Confidence=92.36%
+Index 2447: Actual=4, Predicted=9, Confidence=91.20%
+Index 6505: Actual=9, Predicted=0, Confidence=91.07%
+Index 2135: Actual=6, Predicted=1, Confidence=88.58%
+Index 1459: Actual=2, Predicted=3, Confidence=87.92%
+Index 6091: Actual=9, Predicted=5, Confidence=87.88%
+Index 2035: Actual=5, Predicted=3, Confidence=87.52%
+Index 740: Actual=4, Predicted=9, Confidence=87.17%
+Index 4575: Actual=4, Predicted=2, Confidence=85.26%
+Index 1014: Actual=6, Predicted=5, Confidence=84.18%
+Index 3941: Actual=4, Predicted=6, Confidence=82.95%

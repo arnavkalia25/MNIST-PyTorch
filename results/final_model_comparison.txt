@@ -1,0 +1,20 @@
+FINAL MNIST MODEL COMPARISON
+======================================================================
+
+Device: cpu
+Test samples: 10000
+
+Model                    Loss           Accuracy       Errors    
+----------------------------------------------------------------------
+MLP                      0.1081         96.67          %333       
+CNN                      0.0287         99.01          %99        
+CNN + Augmentation       0.0207         99.26          %74        
+
+CNN vs MLP: +2.34 percentage points
+CNN + Augmentation vs MLP: +2.59 percentage points
+CNN + Augmentation vs CNN: +0.25 percentage points
+
+Best Model: CNN + Augmentation
+Best Test Accuracy: 99.26%
+Best Test Loss: 0.0207
+Incorrect Predictions: 74
