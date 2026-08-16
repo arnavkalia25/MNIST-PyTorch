@@ -1,29 +1,76 @@
-# Virtual environments
-venv/
-.venv/
+# =========================
+# Python
+# =========================
 
-# Python cache
 __pycache__/
 *.py[cod]
+*$py.class
 
-# MNIST dataset
-data/
+# =========================
+# Virtual Environment
+# =========================
 
-# Environment variables
-.env
-.env.*
+venv/
+.venv/
+env/
+test_venv/
 
+# =========================
+# Jupyter
+# =========================
+
+.ipynb_checkpoints/
+
+# =========================
+# PyTorch
+# =========================
+
+*.pth
+
+# =========================
+# Optuna databases
+# =========================
+
+*.db
+
+# =========================
+# Dataset
+# =========================
+
+data/MNIST/
+data/raw/
+data/processed/
+
+# =========================
 # IDE
+# =========================
+
 .vscode/
 .idea/
 
-# OS files
+# =========================
+# OS
+# =========================
+
 .DS_Store
 Thumbs.db
 
-# Jupyter
-.ipynb_checkpoints/
+# =========================
+# Python cache
+# =========================
 
-# Temporary files
-*.tmp
+.pytest_cache/
+.mypy_cache/
+
+# =========================
+# Logs
+# =========================
+
 *.log
+
+# =========================
+# Environment variables
+# =========================
+
+.env
+.env.*
