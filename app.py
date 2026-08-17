@@ -5,13 +5,20 @@ from PIL import Image, ImageOps
 from torchvision import transforms
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 
 # ============================================================
 # Configuration
 # ============================================================
 
-MODEL_PATH = "models/best_mnist_cnn_augmented.pth"
+BASE_DIR = Path(__file__).resolve().parent
+
+MODEL_PATH = (
+    BASE_DIR
+    / "models"
+    / "best_mnist_cnn_augmented.pth"
+)
 
 IMAGE_SIZE = 28
 
@@ -27,9 +34,11 @@ DEVICE = torch.device(
 class MNISTCNN(nn.Module):
 
     def __init__(self):
+
         super().__init__()
 
         self.features = nn.Sequential(
+
             nn.Conv2d(
                 1,
                 32,
@@ -54,6 +63,7 @@ class MNISTCNN(nn.Module):
         )
 
         self.classifier = nn.Sequential(
+
             nn.Flatten(),
 
             nn.Linear(
@@ -87,6 +97,12 @@ class MNISTCNN(nn.Module):
 @st.cache_resource
 def load_model():
 
+    if not MODEL_PATH.exists():
+
+        raise FileNotFoundError(
+            f"Model file not found: {MODEL_PATH}"
+        )
+
     model = MNISTCNN()
 
     checkpoint = torch.load(
@@ -104,7 +120,7 @@ def load_model():
 
 
 # ============================================================
-# Improved Image Preprocessing
+# Image Preprocessing
 # ============================================================
 
 def preprocess_image(image):
@@ -128,7 +144,7 @@ def preprocess_image(image):
     image_array = np.array(image)
 
     # --------------------------------------------------------
-    # Remove very weak background pixels
+    # Remove weak background pixels
     # --------------------------------------------------------
 
     threshold = 30
@@ -143,7 +159,6 @@ def preprocess_image(image):
 
     if coords.size == 0:
 
-        # Empty image fallback
         processed = Image.new(
             "L",
             (28, 28),
@@ -207,6 +222,7 @@ def preprocess_image(image):
     )
 
     left = (side - width) // 2
+
     top = (side - height) // 2
 
     square.paste(
@@ -253,11 +269,15 @@ def preprocess_image(image):
         target_center = 13.5
 
         shift_x = int(
-            round(target_center - center_x)
+            round(
+                target_center - center_x
+            )
         )
 
         shift_y = int(
-            round(target_center - center_y)
+            round(
+                target_center - center_y
+            )
         )
 
         processed = ImageOps.expand(
@@ -481,11 +501,13 @@ if uploaded_file is not None:
     # Prediction
     # --------------------------------------------------------
 
-    predicted_digit, confidence, probabilities = (
-        predict(
-            model,
-            image_tensor
-        )
+    (
+        predicted_digit,
+        confidence,
+        probabilities
+    ) = predict(
+        model,
+        image_tensor
     )
 
     # --------------------------------------------------------
@@ -573,6 +595,8 @@ if uploaded_file is not None:
     )
 
     st.pyplot(fig)
+
+    plt.close(fig)
 
     # --------------------------------------------------------
     # Detailed probabilities
